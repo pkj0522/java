@@ -1,58 +1,66 @@
 import java.util.Scanner;
 
-class Add{
+class Add {
 	private int a, b;
-	public void setValue(int a, int b){
+
+	public void setValue(int a, int b) {
 		this.a = a;
 		this.b = b;
 	}
+
 	public int calculate() {
-		return a+b;
+		return a + b;
 	}
 }
 
 class Mul {
 	private int a, b;
+
 	public void setValue(int a, int b) {
 		this.a = a;
 		this.b = b;
 	}
+
 	public int calculate() {
-		return a*b;
+		return a * b;
 	}
 }
 
 class Sub {
 	private int a, b;
+
 	public void setValue(int a, int b) {
 		this.a = a;
 		this.b = b;
 	}
+
 	public int calculate() {
-		return a-b;
+		return a - b;
 	}
 }
 
 class Div {
-	private int a,b;
+	private int a, b;
+
 	public void setValue(int a, int b) {
 		this.a = a;
 		this.b = b;
 	}
+
 	public int calculate() {
-		int res=0;
-		try{
-			res = a/b;
-		}catch(ArithmeticException e){
+		int res = 0;
+		try {
+			res = a / b;
+		} catch (ArithmeticException e) {
 			System.out.println("0으로 나눌 수 없습니다.");
 		}
-		
+
 		return res;
 	}
 }
 
 public class Calc {
-	public static void main (String args[]) {
+	public static void main(String args[]) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("두 정수와 연산자를 입력하시오>>");
 		int a = scanner.nextInt();
@@ -80,9 +88,9 @@ public class Calc {
 			System.out.println(div.calculate());
 			break;
 		default:
-		System.out.println("잘못된 연산자입니다.");		
+			System.out.println("잘못된 연산자입니다.");
 		}
-		
+
 		scanner.close();
 	}
 }
