@@ -5,7 +5,7 @@ public class GraphicsDrawOvalEx extends JFrame{
 	private MyPanel panel = new MyPanel();
 	
 	public GraphicsDrawOvalEx() {
-		setTitle("JPanel의 paintComponent() 예제");
+		setTitle("drawOval 예제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setContentPane(panel);
 		
