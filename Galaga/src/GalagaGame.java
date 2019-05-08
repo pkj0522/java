@@ -30,9 +30,9 @@ public class GalagaGame extends JPanel implements KeyListener {
 		frame.setResizable(false);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
 		try {
-			shotImage = ImageIO.read(new File("fire.png"));
+			shotImage = ImageIO.read(new File("fire.jpg"));
 			shipImage = ImageIO.read(new File("starship.png"));
 			alienImage = ImageIO.read(new File("alien.png"));
 
@@ -48,9 +48,9 @@ public class GalagaGame extends JPanel implements KeyListener {
 	private void initSprites() {
 		starship = new StarShipSprite(this, shipImage, 370, 550);
 		sprites.add(starship);
-		for (int y = 0; y < 5; y++) {
-			for (int x = 0; x < 12; x++) {
-				Sprite alien = new AlienSprite(this, alienImage, 100 + (x * 50), (50) + y * 30);
+		for (int y = 0; y < 8; y++) {
+			for (int x = 0; x < 15; x++) {
+				Sprite alien = new AlienSprite(this, alienImage, 100 + (x * 100), (50) + y * 50);
 				sprites.add(alien);
 			}
 		}
@@ -66,18 +66,23 @@ public class GalagaGame extends JPanel implements KeyListener {
 	}
 
 	public void removeSprite(Sprite sprite) {
-		sprites.remove(sprite);
+
+  		sprites.remove(sprite);
 	}
 
 	public void fire() {
 		ShotSprite shot = new ShotSprite(this, shotImage, starship.getX() + 10, starship.getY() - 30);
 		sprites.add(shot);
+		ShotSprite shot1 = new ShotSprite(this, shotImage, starship.getX() + 30, starship.getY() - 50);
+		sprites.add(shot1);
+		ShotSprite shot2 = new ShotSprite(this, shotImage, starship.getX() + 50, starship.getY() - 30);
+		sprites.add(shot2);
 	}
 
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		g.setColor(Color.black);
+		g.setColor(Color.white);
 		g.fillRect(0, 0, 800, 600);
 		for (int i = 0; i < sprites.size(); i++) {
 			Sprite sprite = (Sprite) sprites.get(i);
@@ -102,7 +107,8 @@ public class GalagaGame extends JPanel implements KeyListener {
 						me.handleCollision(other);
 						other.handleCollision(me);
 					}
-				}
+				 }
+				 
 			}
 
 			repaint();
@@ -121,6 +127,12 @@ public class GalagaGame extends JPanel implements KeyListener {
 			starship.setDx(+3);
 		if (e.getKeyCode() == KeyEvent.VK_SPACE)
 			fire();
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+			starship.setDy(-3);
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+			starship.setDy(+3);
+		if (e.getKeyCode() == KeyEvent.VK_SPACE)
+			fire();
 	}
 
 	@Override
@@ -129,6 +141,11 @@ public class GalagaGame extends JPanel implements KeyListener {
 			starship.setDx(0);
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
 			starship.setDx(0);
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+			starship.setDy(0);
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+			starship.setDy(0);
+		  
 	}
 
 	@Override

@@ -69,10 +69,10 @@ public class Sprite {
 
 	// 다른 스프라이트와의 충돌 여부를 계산한다. 충돌이면 true를 반환한다.
 	public boolean checkCollision(Sprite other) {
-		Rectangle myRect = new Rectangle();
+		Rectangle myRect = new Rectangle();  
 		Rectangle otherRect = new Rectangle();
-		myRect.setBounds(x, y, getWidth(), getHeight());
-		otherRect.setBounds(other.getX(), other.getY(), other.getWidth(), other.getHeight());
+ 		myRect.setBounds(x, y, getWidth(), getHeight());
+   		otherRect.setBounds(other.getX(), other.getY(), other.getWidth(), other.getHeight());
 
 		return myRect.intersects(otherRect);
 	}

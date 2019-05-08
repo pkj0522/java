@@ -6,13 +6,13 @@ public class ShotSprite extends Sprite {
 	public ShotSprite(GalagaGame game, Image image, int x, int y) {
 		super(image, x, y);
 		this.game = game;
-		dy = -3;
+		dy = -5;
 	}
 
 	@Override
 	public void move() {
 		super.move();
-		if (y < -100) {
+		if (y < -200) {
 			game.removeSprite(this);
 		}
 	}
