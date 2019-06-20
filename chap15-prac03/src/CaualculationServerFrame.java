@@ -103,7 +103,7 @@ public class CaualculationServerFrame extends JFrame {
 					out.flush();
 					log.append(first + operator + second + "=" + resText + "\n");
 				} catch (IOException e) {
-					log.append("연결 정료\n");
+					log.append("연결 종료\n");
 					System.out.println("연결 종료");
 					return; // 스레드 종료
 					// e.printStackTrace();
